@@ -418,66 +418,48 @@
         @click="scrollToTop"
       />
 
-      <div class="row justify-center bg-grey-9">
-        <div class="q-pa-md">
-          <a href="https://www.facebook.com/farmaciasamericana" target="_blank">
-            <q-avatar>
-              <img src="../assets/facebook_logo.svg" />
-            </q-avatar>
-            <q-tooltip class="bg-grey-8 text-body2" :offset="[10, 10]">
-              Nuestro Facebook
-            </q-tooltip>
-          </a>
-        </div>
-
-        <div class="q-pa-md">
-          <a href="https://wa.me/593968822033" target="_blank">
-            <q-avatar>
-              <img src="../assets/whatsapp.svg" />
-            </q-avatar>
-            <q-tooltip class="bg-grey-8 text-body2" :offset="[10, 10]">
-              Escríbenos por WhatsApp
-            </q-tooltip>
-          </a>
-        </div>
-
-        <div class="q-py-md q-ml-md q-mt-xs">
-          <q-btn
-            outline
-            round
-            color="primary"
-            icon="email"
-            size="md"
-            href="mailto:farmaciasamericanas@apromedloja.com"
-            target="_blank"
+      <div
+        :class="
+          !scrolled
+            ? 'fixed-bottom-right fixed-whatsapp-btn'
+            : 'fixed-bottom-right whatsapp-btn'
+        "
+      >
+        <q-btn
+          flat
+          round
+          size="sm"
+          target="_blank"
+          href="https://wa.me/593968822033"
+        >
+          <q-avatar>
+            <img src="../assets/whatsapp.svg" />
+          </q-avatar>
+          <q-tooltip
+            class="bg-grey-8 text-body2"
+            transition-show="scale"
+            transition-hide="scale"
+            anchor="center right"
+            self="center left"
           >
-            <q-tooltip class="bg-grey-8 text-body2" :offset="[10, 10]">
-              Envíanos un correo electrónico
-            </q-tooltip>
-          </q-btn>
-        </div>
+            <span style="white-space: nowrap">Escríbenos por WhatsApp</span>
+          </q-tooltip>
+        </q-btn>
       </div>
 
-      <q-separator />
-      <div>
-        <div class="row justify-evenly bg-grey">
-          <p class="text-caption text-white">
-            Copyright &copy; 2023 Apromed S.A.S.
-          </p>
-        </div>
-      </div>
-      <!-- Footer End -->
+      <FootFarmacias />
     </q-page-container>
   </q-page>
 </template>
 
 <script setup lang="ts">
 import { onBeforeUnmount, onMounted, ref } from 'vue';
+import FootFarmacias from '../components/FootFarmacias.vue';
 
 // Data
-const showScrollToTopButton = ref(false);
 const slide = ref(1);
 const autoplay = ref(true);
+const scrolled = ref(false);
 const colorMision = ref(false);
 const colorVisionClientes = ref(false);
 const colorVisionEquipo = ref(false);
@@ -485,6 +467,7 @@ const colorProposito = ref(false);
 const colorUno = ref(false);
 const colorDos = ref(false);
 const colorTres = ref(false);
+const showScrollToTopButton = ref(false);
 const direcciones = [
   'Lauro Guerrero y Rocafuerte',
   'Bolívar y Rocafuerte',
@@ -571,6 +554,7 @@ const openGoogleMaps = (address: string) => {
 // Mostrar el botón de regreso cuando se hace scroll
 const handleScroll = () => {
   const scrollY = window.scrollY;
+  scrolled.value = window.scrollY > 0;
   showScrollToTopButton.value = scrollY > 200; // Cambia 200 por la posición a partir de la cual quieres mostrar el botón
 };
 
@@ -695,5 +679,17 @@ function onLeaveTres() {
   right: 20px; // Ajusta la distancia desde la derecha de la página
   z-index: 1000; // Asegura que esté por encima de otros elementos
   // Puedes agregar otros estilos de diseño según tus preferencias
+}
+
+.whatsapp-btn {
+  margin-right: 15px;
+  margin-bottom: 70px;
+  transition: transform 0.5s ease;
+}
+
+.fixed-whatsapp-btn {
+  margin-right: 15px;
+  margin-bottom: 70px;
+  transform: translateY(40px); /* Adjust the initial position */
 }
 </style>

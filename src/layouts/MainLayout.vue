@@ -7,7 +7,9 @@
     >
       <q-toolbar>
         <q-toolbar-title>
-          <img src="../assets/logo_apromed.png" style="height: 70px" />
+          <a href="/">
+            <img src="../assets/logo_apromed.png" style="height: 70px" />
+          </a>
         </q-toolbar-title>
 
         <div
@@ -45,7 +47,7 @@
             <q-btn
               dense
               flat
-              label="Farmacias"
+              label="Farmacias Americanas"
               no-caps
               class="q-px-sm"
               to="/farmacias"
@@ -137,6 +139,14 @@
             </q-btn-dropdown>
           </div>
         </div>
+
+        <q-toggle
+          :model-value="dark.isActive"
+          checked-icon="dark_mode"
+          unchecked-icon="light_mode"
+          size="3rem"
+          @update:model-value="(val) => dark.set(val)"
+        />
 
         <q-btn
           dense
@@ -321,13 +331,16 @@
 </template>
 
 <script setup lang="ts">
-import { useQuasar } from 'quasar';
-import { ref } from 'vue';
+import { LocalStorage, useQuasar } from 'quasar';
 import { useRouter } from 'vue-router';
+import { DarkMode } from '../components/models';
+import { onBeforeMount, ref, watch } from 'vue';
 
 // Data
 const $q = useQuasar();
 const router = useRouter();
+const darkMode = ref(false);
+const { dark } = useQuasar();
 const rightDrawerOpen = ref(false);
 $q.screen.setSizes({ sm: 300, md: 500, lg: 1000, xl: 2000 });
 
@@ -387,6 +400,22 @@ const scrollToContacto = () => {
     quienesSomosElement.scrollIntoView({ behavior: 'smooth' });
   }
 };
+
+watch(
+  () => dark.isActive,
+  (val) => {
+    // Guardar el estado de dark.isActive en el LocalStorage
+    LocalStorage.set('darkMode', { darkMode: val });
+  }
+);
+
+onBeforeMount(async () => {
+  const session: DarkMode | null = LocalStorage.getItem('darkMode');
+  darkMode.value = session?.darkMode || false;
+  if (session?.darkMode !== null) {
+    dark.set(darkMode.value);
+  }
+});
 </script>
 
 <style lang="scss" scoped>

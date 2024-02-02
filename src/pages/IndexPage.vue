@@ -773,7 +773,17 @@
         icon="keyboard_arrow_up"
         class="q-px-sm scroll-to-top-button"
         @click="scrollToTop"
-      />
+      >
+        <q-tooltip
+          class="bg-grey-8 text-body2"
+          transition-show="scale"
+          transition-hide="scale"
+          anchor="center right"
+          self="center left"
+        >
+          <span style="white-space: nowrap">Ir al inicio</span>
+        </q-tooltip>
+      </q-btn>
 
       <div
         :class="
@@ -785,7 +795,7 @@
         <q-btn
           flat
           round
-          size="md"
+          size="sm"
           target="_blank"
           href="https://wa.me/593988130131"
         >
@@ -793,6 +803,7 @@
             <img src="../assets/whatsapp.svg" />
           </q-avatar>
           <q-tooltip
+            class="bg-grey-8 text-body2"
             transition-show="scale"
             transition-hide="scale"
             anchor="center right"
@@ -805,20 +816,14 @@
 
       <q-separator />
 
-      <div>
-        <div class="row justify-evenly bg-grey">
-          <p class="text-caption text-white">
-            Copyright &copy; 2023 Apromed S.A.S.
-          </p>
-        </div>
-      </div>
-      <!-- Footer End -->
+      <FootApromed />
     </q-page-container>
   </q-page>
 </template>
 
 <script setup lang="ts">
 import { onBeforeUnmount, onMounted, ref } from 'vue';
+import FootApromed from '../components/FootApromed.vue';
 
 // Data
 const slide = ref(1);
@@ -991,7 +996,6 @@ function onLeaveTelefonos() {
 // Agregar y quitar el listener del evento de desplazamiento
 onMounted(() => {
   window.addEventListener('scroll', handleScroll);
-  console.log('[SCROLL]: ', JSON.stringify(scrolled.value));
 });
 
 onBeforeUnmount(() => {
