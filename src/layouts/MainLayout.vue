@@ -184,10 +184,10 @@
         <q-list padding>
           <q-item clickable v-ripple active-class="my-menu-link" to="/">
             <q-item-section avatar>
-              <q-icon name="home" color="grey-9" />
+              <q-icon name="home" />
             </q-item-section>
             <q-item-section>
-              <q-item-label class="text-grey-9 text-h6">Inicio</q-item-label>
+              <q-item-label class="text-h6">Inicio</q-item-label>
             </q-item-section>
           </q-item>
 
@@ -198,10 +198,10 @@
             to="/farmacias"
           >
             <q-item-section avatar>
-              <q-icon name="medication" color="grey-9" />
+              <q-icon name="medication" />
             </q-item-section>
             <q-item-section>
-              <q-item-label class="text-grey-9 text-h6">Farmacias</q-item-label>
+              <q-item-label class="text-h6">Farmacias</q-item-label>
             </q-item-section>
           </q-item>
 
@@ -212,12 +212,10 @@
             href="https://www.loxasoluciones-cloud.com:8081/#/login?redirect=/"
           >
             <q-item-section avatar>
-              <q-icon name="receipt" color="grey-9" />
+              <q-icon name="receipt" />
             </q-item-section>
             <q-item-section>
-              <q-item-label class="text-grey-9 text-h6"
-                >Descargar Factura</q-item-label
-              >
+              <q-item-label class="text-h6">Descargar Factura</q-item-label>
             </q-item-section>
           </q-item>
 
@@ -228,12 +226,10 @@
             href="https://www.apromedloja.com/webmail/"
           >
             <q-item-section avatar>
-              <q-icon name="mail" color="grey-9" />
+              <q-icon name="mail" />
             </q-item-section>
             <q-item-section>
-              <q-item-label class="text-grey-9 text-h6"
-                >Correo Institucional</q-item-label
-              >
+              <q-item-label class="text-h6">Correo Institucional</q-item-label>
             </q-item-section>
           </q-item>
 
@@ -244,12 +240,10 @@
             href="https://apromedfarmaloja-cloud.com:3020/#/login"
           >
             <q-item-section avatar>
-              <q-icon name="schedule" color="grey-9" />
+              <q-icon name="schedule" />
             </q-item-section>
             <q-item-section>
-              <q-item-label class="text-grey-9 text-h6"
-                >Gestión Nómina</q-item-label
-              >
+              <q-item-label class="text-h6">Gestión Nómina</q-item-label>
             </q-item-section>
           </q-item>
 
@@ -258,7 +252,7 @@
               expand-separator
               icon="folder"
               label="Documentos"
-              class="text-grey-9 text-h6"
+              class="text-h6"
             >
               <q-list>
                 <q-item clickable v-close-popup>
@@ -292,7 +286,7 @@
               expand-separator
               icon="description"
               label="Reclamos"
-              class="text-grey-9 text-h6"
+              class="text-h6"
             >
               <q-list>
                 <q-item clickable v-close-popup>
@@ -331,16 +325,18 @@
 </template>
 
 <script setup lang="ts">
-import { LocalStorage, useQuasar } from 'quasar';
 import { useRouter } from 'vue-router';
+import { useAuthStore } from '../stores/auth';
 import { DarkMode } from '../components/models';
 import { onBeforeMount, ref, watch } from 'vue';
+import { LocalStorage, useQuasar } from 'quasar';
 
 // Data
 const $q = useQuasar();
 const router = useRouter();
 const darkMode = ref(false);
 const { dark } = useQuasar();
+const authStore = useAuthStore();
 const rightDrawerOpen = ref(false);
 $q.screen.setSizes({ sm: 300, md: 500, lg: 1000, xl: 2000 });
 
@@ -367,13 +363,6 @@ const onButtonClick = (num: number) => {
     window.location.href = 'https://apromedfarmaloja-cloud.com:3008/#/login/3';
   }
 };
-
-// const scrollToTop = () => {
-//   window.scrollTo({
-//     top: 0,
-//     behavior: 'smooth', // Esto proporciona un desplazamiento suave hacia arriba
-//   });
-// };
 
 const redirectTo = (scrollFunction: () => void) => {
   // Redirige a la ruta "/"
@@ -404,6 +393,7 @@ const scrollToContacto = () => {
 watch(
   () => dark.isActive,
   (val) => {
+    authStore.setDarkMode(val);
     // Guardar el estado de dark.isActive en el LocalStorage
     LocalStorage.set('darkMode', { darkMode: val });
   }

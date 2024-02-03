@@ -1,68 +1,76 @@
 <template>
   <q-page>
-    <q-page-container style="padding-top: 20px">
-      <div class="q-pa-none">
-        <div>
-          <div class="row justify-center">
-            <img src="../assets/logo_apromed.png" style="height: 150px" />
-          </div>
-
-          <div class="q-pb-xl q-px-sm fadeIn">
-            <q-carousel
-              swipeable
-              animated
-              arrows
-              :autoplay="autoplay"
-              v-model="slide"
-              v-model:fullscreen="fullscreen"
-              infinite
-              style="height: 480px; max-width: 920px; margin: 0 auto"
-            >
-              <q-carousel-slide :name="1">
-                <q-img
-                  src="../assets/img1.webp"
-                  height="400px"
-                  class="rounded-borders"
-                />
-                <div class="q-mt-md text-center">
-                  <p class="text-body1 text-grey-9">
-                    <strong> Tu salud, nuestra prioridad. </strong>
-                  </p>
-                </div>
-              </q-carousel-slide>
-              <q-carousel-slide :name="2">
-                <q-img
-                  src="../assets/img2.webp"
-                  height="400px"
-                  class="rounded-borders"
-                />
-                <div class="q-mt-md text-center">
-                  <p class="text-body1 text-grey-9">
-                    <strong> Cuidando vidas, distribuyendo esperanza </strong>
-                  </p>
-                </div>
-              </q-carousel-slide>
-              <q-carousel-slide :name="3">
-                <q-img
-                  src="../assets/img3.webp"
-                  height="400px"
-                  class="rounded-borders"
-                />
-                <div class="q-mt-md text-center">
-                  <p class="text-body1 text-grey-9">
-                    <strong> Juntos hacia un futuro más saludable </strong>
-                  </p>
-                </div>
-              </q-carousel-slide>
-            </q-carousel>
-          </div>
+    <q-page-container style="padding-top: 0px">
+      <div
+        :class="
+          appStore.darkMode ? 'q-pa-none element-dark' : 'q-pa-none element'
+        "
+      >
+        <div class="row justify-center q-py-sm">
+          <img src="../assets/logo_apromed.png" style="height: 150px" />
         </div>
+
+        <q-carousel
+          swipeable
+          animated
+          arrows
+          :class="
+            appStore.darkMode
+              ? 'q-pa-none q-ma-none element-dark'
+              : 'q-pa-none q-ma-none element'
+          "
+          :autoplay="autoplay"
+          v-model="slide"
+          v-model:fullscreen="fullscreen"
+          infinite
+          style="height: 480px; max-width: 920px; margin: 0 auto"
+        >
+          <q-carousel-slide :name="1">
+            <q-img
+              src="../assets/img1.webp"
+              height="400px"
+              class="rounded-borders"
+            />
+            <div class="q-mt-md text-center">
+              <p class="text-body1">
+                <strong> Tu salud, nuestra prioridad. </strong>
+              </p>
+            </div>
+          </q-carousel-slide>
+          <q-carousel-slide :name="2">
+            <q-img
+              src="../assets/img2.webp"
+              height="400px"
+              class="rounded-borders"
+            />
+            <div class="q-mt-md text-center">
+              <p class="text-body1">
+                <strong> Cuidando vidas, distribuyendo esperanza </strong>
+              </p>
+            </div>
+          </q-carousel-slide>
+          <q-carousel-slide :name="3">
+            <q-img
+              src="../assets/img3.webp"
+              height="400px"
+              class="rounded-borders"
+            />
+            <div class="q-mt-md text-center">
+              <p class="text-body1">
+                <strong> Juntos hacia un futuro más saludable </strong>
+              </p>
+            </div>
+          </q-carousel-slide>
+        </q-carousel>
       </div>
 
       <div
         id="quienesSomos"
-        class="column justify-center q-pb-md"
-        style="background-color: #bcbdc0"
+        :class="
+          appStore.darkMode
+            ? 'fit column wrap justify-center items-center content-center q-pb-xl element-dark'
+            : 'fit column wrap justify-center items-center content-center q-pb-xl element'
+        "
       >
         <div>
           <h3 class="text-center font-bold text-bold">Quiénes Somos</h3>
@@ -88,7 +96,7 @@
                   <div
                     :class="
                       !colorMision
-                        ? 'q-pt-md text-subtitle2 text-justify text-grey-9'
+                        ? 'q-pt-md text-subtitle2 text-justify'
                         : 'q-pt-md text-subtitle2 text-justify text-white'
                     "
                   >
@@ -124,7 +132,7 @@
                   <div
                     :class="
                       !colorVision
-                        ? 'q-pt-md text-subtitle2 text-justify text-grey-9'
+                        ? 'q-pt-md text-subtitle2 text-justify'
                         : 'q-pt-md text-subtitle2 text-justify text-white'
                     "
                   >
@@ -160,7 +168,7 @@
               <div
                 :class="
                   !colorProposito
-                    ? 'q-pt-md text-subtitle2 text-justify text-grey-9'
+                    ? 'q-pt-md text-subtitle2 text-justify'
                     : 'q-pt-md text-subtitle2 text-justify text-white'
                 "
               >
@@ -179,8 +187,11 @@
       </div>
 
       <div
-        class="fit column wrap justify-center items-center content-center q-pb-xl"
-        style="background-color: #f9fafb"
+        :class="
+          appStore.darkMode
+            ? 'fit column wrap justify-center items-center content-center q-pb-xl element-dark'
+            : 'fit column wrap justify-center items-center content-center q-pb-xl element'
+        "
       >
         <div class="fit row justify-center">
           <h3
@@ -189,7 +200,7 @@
             Cómo Trabajamos
           </h3>
           <div class="q-px-xl">
-            <p class="text-h6 text-grey-9 text-center">
+            <p class="text-h6 text-center">
               En Apromed seguimos un riguroso proceso para asegurar la calidad y
               seguridad de los productos que entregamos. Aquí le mostramos un
               vistazo a nuestro método de trabajo:
@@ -225,7 +236,7 @@
                   <div
                     :class="
                       !colorUno
-                        ? 'text-subtitle1 text-center text-grey-9'
+                        ? 'text-subtitle1 text-center'
                         : 'text-subtitle1 text-center text-white'
                     "
                   >
@@ -267,7 +278,7 @@
                   <div
                     :class="
                       !colorDos
-                        ? 'text-subtitle1 text-center text-grey-9'
+                        ? 'text-subtitle1 text-center'
                         : 'text-subtitle1 text-center text-white'
                     "
                   >
@@ -309,7 +320,7 @@
                   <div
                     :class="
                       !colorTres
-                        ? 'text-subtitle1 text-center text-grey-9'
+                        ? 'text-subtitle1 text-center'
                         : 'text-subtitle1 text-center text-white'
                     "
                   >
@@ -351,7 +362,7 @@
                   <div
                     :class="
                       !colorCuatro
-                        ? 'text-subtitle1 text-center text-grey-9'
+                        ? 'text-subtitle1 text-center'
                         : 'text-subtitle1 text-center text-white'
                     "
                   >
@@ -369,7 +380,11 @@
       </div>
 
       <div
-        class="fit column wrap justify-center items-center content-center q-pb-xl"
+        :class="
+          appStore.darkMode
+            ? 'fit column wrap justify-center items-center content-center q-pb-xl element-dark'
+            : 'fit column wrap justify-center items-center content-center q-pb-xl element'
+        "
         style="background-color: #bcbdc0; height: 600px"
       >
         <div class="fit column justify-center">
@@ -379,7 +394,7 @@
             Nos Destacamos
           </h3>
           <div class="q-px-xl">
-            <p class="text-h6 text-center text-grey-9">
+            <p class="text-h6 text-center">
               En Apromed, nos enorgullece ofrecer productos y servicios que
               destacan en la industria farmacéutica. Aquí algunos de ellos:
             </p>
@@ -413,7 +428,7 @@
                   <div
                     :class="
                       !colorSeguridad
-                        ? 'text-subtitle1 text-center text-grey-9'
+                        ? 'text-subtitle1 text-center'
                         : 'text-subtitle1 text-center text-white'
                     "
                   >
@@ -456,7 +471,7 @@
                   <div
                     :class="
                       !colorEntrega
-                        ? 'text-subtitle1 text-center text-grey-9'
+                        ? 'text-subtitle1 text-center'
                         : 'text-subtitle1 text-center text-white'
                     "
                   >
@@ -499,7 +514,7 @@
                   <div
                     :class="
                       !colorSoporte
-                        ? 'text-subtitle1 text-center text-grey-9'
+                        ? 'text-subtitle1 text-center'
                         : 'text-subtitle1 text-center text-white'
                     "
                   >
@@ -521,6 +536,11 @@
       <div
         id="contacto"
         class="fit column justify-center items-center content-center q-pb-xl"
+        :class="
+          appStore.darkMode
+            ? 'fit column justify-center items-center content-center q-pb-xl element-dark'
+            : 'fit column justify-center items-center content-center q-pb-xl element'
+        "
         style="background-color: #f9fafb; height: 600px"
       >
         <div>
@@ -547,7 +567,7 @@
                 <strong>Queremos Ser Parte de su Equipo de Salud</strong>
               </h4>
             </div>
-            <div class="text-subtitle1 text-left text-grey-9">
+            <div class="text-subtitle1 text-left">
               <p class="text-gray-7">
                 En Apromed, deseamos formar parte de su equipo de salud. Ponte
                 en contacto con nosotros para empezar a disfrutar de nuestros
@@ -595,7 +615,7 @@
                       </q-tooltip>
                     </q-btn>
                   </div>
-                  <div class="text-subtitle2 text-center text-grey-9">
+                  <div class="text-subtitle2 text-center">
                     Av. Eugenio Espejo 200-31 Y Adolfo Valarezo, Loja, Ecuador
                   </div>
                 </div>
@@ -637,7 +657,7 @@
                       </q-tooltip>
                     </q-btn>
                   </div>
-                  <div class="text-subtitle2 text-center text-grey-9">
+                  <div class="text-subtitle2 text-center">
                     info@apromedloja.com
                   </div>
                 </div>
@@ -670,7 +690,7 @@
                       size="lg"
                     />
                   </div>
-                  <div class="text-subtitle2 text-center text-grey-9">
+                  <div class="text-subtitle2 text-center">
                     072713525 - 072713443
                   </div>
                 </div>
@@ -711,9 +731,7 @@
                       </q-tooltip>
                     </q-btn>
                   </div>
-                  <div class="text-subtitle2 text-center text-grey-9">
-                    0988130131
-                  </div>
+                  <div class="text-subtitle2 text-center">0988130131</div>
                 </div>
               </q-card-section>
             </q-card>
@@ -752,9 +770,7 @@
                       </q-tooltip>
                     </q-btn>
                   </div>
-                  <div class="text-subtitle2 text-center text-grey-9">
-                    0969884332
-                  </div>
+                  <div class="text-subtitle2 text-center">0969884332</div>
                 </div>
               </q-card-section>
             </q-card>
@@ -822,6 +838,7 @@
 </template>
 
 <script setup lang="ts">
+import { useAuthStore } from '../stores/auth';
 import { onBeforeUnmount, onMounted, ref } from 'vue';
 import FootApromed from '../components/FootApromed.vue';
 
@@ -829,6 +846,7 @@ import FootApromed from '../components/FootApromed.vue';
 const slide = ref(1);
 const autoplay = ref(true);
 const fullscreen = ref(false);
+const appStore = useAuthStore();
 const showScrollToTopButton = ref(false);
 const colorMision = ref(false);
 const colorVision = ref(false);
@@ -1096,5 +1114,21 @@ onBeforeUnmount(() => {
   margin-right: 15px;
   margin-bottom: 70px;
   transform: translateY(40px); /* Adjust the initial position */
+}
+.element-dark {
+  background-image: linear-gradient(
+    142deg,
+    #5b5b5b 0%,
+    rgba(0, 0, 0, 0.9) 100%
+  ) !important;
+}
+/* Para dark mode no activo (inverso de los colores de .element) */
+.element {
+  background-image: linear-gradient(
+    142deg,
+    #a4a4a4 0%,
+    /* Color de fondo blanco en lugar de #5b5b5b */ rgba(255, 255, 255, 0.9)
+      100% /* Color del fondo con opacidad en lugar de rgba(0, 0, 0, 0.9) */
+  ) !important;
 }
 </style>

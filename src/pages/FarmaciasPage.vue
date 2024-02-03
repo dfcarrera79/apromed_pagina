@@ -2,7 +2,7 @@
   <q-page>
     <q-page-container style="padding-top: 0px">
       <div>
-        <div style="background-color: #bcbdc0">
+        <div :class="appStore.darkMode ? 'element-dark' : 'element'">
           <div class="row justify-center q-py-md q-ma-none">
             <img src="../assets/farmacias.png" style="height: 80px" />
           </div>
@@ -10,7 +10,7 @@
           <div
             id="contacto"
             class="fit column justify-center items-center content-center q-pb-xl"
-            style="background-color: #bcbdc0; height: 600px"
+            style="height: 600px"
           >
             <div class="fit row justify-center">
               <div
@@ -22,8 +22,8 @@
                     <strong>Bienvenido a Farmacias Americanas</strong>
                   </h4>
                 </div>
-                <div class="text-subtitle1 text-left text-grey-9">
-                  <p class="text-gray-7">
+                <div class="text-subtitle1 text-left">
+                  <p>
                     Somos una cadena de farmacias en las provincias de Loja y
                     Zamora Chinchipe, con una red de más de veinte sucursales
                     para servirle de la mejor manera.
@@ -41,9 +41,12 @@
         </div>
       </div>
 
-      <div id="vision" class="q-pb-md" style="background-color: #f9fafb">
+      <div
+        id="vision"
+        :class="appStore.darkMode ? 'q-py-md element-dark' : 'q-py-md element'"
+      >
         <div>
-          <h3 class="text-center font-bold text-bold">Visión</h3>
+          <h3 class="q-ma-none text-center font-bold text-bold">Visión</h3>
         </div>
 
         <div class="row justify-evenly items-center content-center">
@@ -66,8 +69,8 @@
                   <div
                     :class="
                       !colorVisionClientes
-                        ? 'q-pt-md text-subtitle1 text-center text-grey-9'
-                        : 'q-pt-md text-subtitle1 text-center text-white'
+                        ? 'q-pt-md text-subtitle1 text-center'
+                        : 'q-pt-md text-subtitle1 text-center'
                     "
                   >
                     <p>
@@ -98,8 +101,8 @@
                   <div
                     :class="
                       !colorVisionEquipo
-                        ? 'q-pt-md text-subtitle1 text-center text-grey-9'
-                        : 'q-pt-md text-subtitle1 text-center text-white'
+                        ? 'q-pt-md text-subtitle1 text-center'
+                        : 'q-pt-md text-subtitle1 text-center'
                     "
                   >
                     <p>
@@ -121,8 +124,11 @@
 
       <div
         id="quienesSomos"
-        class="column justify-center q-pb-md"
-        style="background-color: #bcbdc0"
+        :class="
+          appStore.darkMode
+            ? 'column justify-center q-pb-md element-dark'
+            : 'column justify-center q-pb-md element'
+        "
       >
         <div>
           <h3 class="text-center font-bold text-bold">Quiénes Somos</h3>
@@ -148,8 +154,8 @@
                   <div
                     :class="
                       !colorMision
-                        ? 'q-pt-md text-subtitle1 text-center text-grey-9'
-                        : 'q-pt-md text-subtitle1 text-center text-white'
+                        ? 'q-pt-md text-subtitle1 text-center'
+                        : 'q-pt-md text-subtitle1 text-center'
                     "
                   >
                     <p>
@@ -177,13 +183,7 @@
                 >
                   Valores
                 </div>
-                <div
-                  :class="
-                    !colorProposito
-                      ? 'text-subtitle1 text-grey-9'
-                      : 'text-subtitle1 text-white'
-                  "
-                >
+                <div class="text-subtitle1">
                   <ul>
                     <li>Compromiso, responsabilidad, seguridad</li>
                     <li>Humanidad, honestidad, respeto</li>
@@ -200,8 +200,11 @@
       </div>
 
       <div
-        class="column justify-center q-pb-xl"
-        style="background-color: #f9fafb"
+        :class="
+          appStore.darkMode
+            ? 'column justify-center q-pb-xl element-dark'
+            : 'column justify-center q-pb-xl element'
+        "
       >
         <div class="fit row justify-center">
           <h3
@@ -211,7 +214,7 @@
           </h3>
 
           <div class="q-px-xl">
-            <p class="text-h6 text-grey-9 text-center">
+            <p class="text-h6 text-center">
               Brindamos un excelente servicio y una experiencia de compra segura
               y sencilla. Estas son solo algunas de las características que
               hacen de Farmacias Americanas su opción número uno para todas sus
@@ -245,8 +248,8 @@
                   <div
                     :class="
                       !colorUno
-                        ? 'text-subtitle1 text-center text-grey-9'
-                        : 'text-subtitle1 text-center text-white'
+                        ? 'text-subtitle1 text-center'
+                        : 'text-subtitle1 text-center'
                     "
                   >
                     <p>
@@ -285,8 +288,8 @@
                   <div
                     :class="
                       !colorDos
-                        ? 'text-subtitle1 text-center text-grey-9'
-                        : 'text-subtitle1 text-center text-white'
+                        ? 'text-subtitle1 text-center'
+                        : 'text-subtitle1 text-center'
                     "
                   >
                     <p>
@@ -325,8 +328,8 @@
                   <div
                     :class="
                       !colorTres
-                        ? 'text-subtitle1 text-center text-grey-9'
-                        : 'text-subtitle1 text-center text-white'
+                        ? 'text-subtitle1 text-center'
+                        : 'text-subtitle1 text-center'
                     "
                   >
                     <p>
@@ -344,8 +347,11 @@
       </div>
 
       <div
-        class="fit column wrap justify-center items-center content-center q-pb-xl"
-        style="background-color: #bcbdc0"
+        :class="
+          appStore.darkMode
+            ? 'fit column wrap justify-center items-center content-center q-pb-xl element-dark'
+            : 'fit column wrap justify-center items-center content-center q-pb-xl element'
+        "
       >
         <div class="fit row justify-center q-pt-xl">
           <q-carousel
@@ -372,8 +378,8 @@
                 <strong>¿Listo para empezar?</strong>
               </h4>
             </div>
-            <div class="text-subtitle1 text-left text-grey-9">
-              <p class="text-gray-7">
+            <div class="text-subtitle1 text-left">
+              <p>
                 Encuentra la farmacia americana más cercana a ti y experimenta
                 la calidad de nuestro servicio.
               </p>
@@ -389,10 +395,7 @@
                 :key="index"
               >
                 <q-btn outline color="orange" no-caps style="width: 290px">
-                  <div
-                    class="text-grey-9"
-                    @click="openGoogleMaps(direcciones[index - 1])"
-                  >
+                  <div @click="openGoogleMaps(direcciones[index - 1])">
                     {{ direcciones[index - 1] }}<br />{{ telefonos[index - 1] }}
                   </div>
                   <q-tooltip class="bg-grey-8 text-body2" :offset="[10, 10]">
@@ -453,6 +456,7 @@
 </template>
 
 <script setup lang="ts">
+import { useAuthStore } from '../stores/auth';
 import { onBeforeUnmount, onMounted, ref } from 'vue';
 import FootFarmacias from '../components/FootFarmacias.vue';
 
@@ -460,13 +464,14 @@ import FootFarmacias from '../components/FootFarmacias.vue';
 const slide = ref(1);
 const autoplay = ref(true);
 const scrolled = ref(false);
-const colorMision = ref(false);
-const colorVisionClientes = ref(false);
-const colorVisionEquipo = ref(false);
-const colorProposito = ref(false);
 const colorUno = ref(false);
 const colorDos = ref(false);
 const colorTres = ref(false);
+const colorMision = ref(false);
+const appStore = useAuthStore();
+const colorProposito = ref(false);
+const colorVisionEquipo = ref(false);
+const colorVisionClientes = ref(false);
 const showScrollToTopButton = ref(false);
 const direcciones = [
   'Lauro Guerrero y Rocafuerte',
@@ -691,5 +696,21 @@ function onLeaveTres() {
   margin-right: 15px;
   margin-bottom: 70px;
   transform: translateY(40px); /* Adjust the initial position */
+}
+.element-dark {
+  background-image: linear-gradient(
+    142deg,
+    #5b5b5b 0%,
+    rgba(0, 0, 0, 0.9) 100%
+  ) !important;
+}
+/* Para dark mode no activo (inverso de los colores de .element) */
+.element {
+  background-image: linear-gradient(
+    142deg,
+    #a4a4a4 0%,
+    /* Color de fondo blanco en lugar de #5b5b5b */ rgba(255, 255, 255, 0.9)
+      100% /* Color del fondo con opacidad en lugar de rgba(0, 0, 0, 0.9) */
+  ) !important;
 }
 </style>
