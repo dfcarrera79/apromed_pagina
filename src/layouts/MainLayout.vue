@@ -8,7 +8,10 @@
       <q-toolbar>
         <q-toolbar-title>
           <a href="/">
-            <img src="../assets/logo_apromed.png" style="height: 70px" />
+            <img
+              src="https://res.cloudinary.com/dvy167slj/image/upload/f_auto,q_auto/v1/apromed/logo_apromed"
+              style="height: 70px"
+            />
           </a>
         </q-toolbar-title>
 

@@ -3,8 +3,23 @@
     <q-page-container style="padding-top: 0px">
       <div>
         <div :class="appStore.darkMode ? 'element-dark' : 'element'">
-          <div class="row justify-center q-py-md q-ma-none">
-            <img src="../assets/farmacias.png" style="height: 80px" />
+          <div
+            v-if="!appStore.darkMode"
+            class="row justify-center q-py-md q-ma-none"
+          >
+            <img
+              src="https://res.cloudinary.com/dvy167slj/image/upload/f_auto,q_auto/v1/apromed/farmacias"
+              style="height: 80px"
+            />
+          </div>
+          <div
+            v-if="appStore.darkMode"
+            class="row justify-center q-py-md q-ma-none"
+          >
+            <img
+              src="https://res.cloudinary.com/dvy167slj/image/upload/f_auto,q_auto/v1/apromed/farmacias_dark"
+              style="height: 80px"
+            />
           </div>
 
           <div
@@ -32,7 +47,7 @@
               </div>
 
               <q-img
-                src="../assets/farma2.webp"
+                src="https://res.cloudinary.com/dvy167slj/image/upload/f_auto,q_auto/v1/apromed/farma2"
                 class="rounded-borders"
                 style="max-width: 550px; max-height: 450px"
               />
@@ -367,9 +382,18 @@
             @mouseleave="autoplay = true"
             style="width: 460px"
           >
-            <q-carousel-slide :name="1" img-src="..//assets/farma1.webp" />
-            <q-carousel-slide :name="2" img-src="..//assets/farma3.webp" />
-            <q-carousel-slide :name="3" img-src="..//assets/farma4.webp" />
+            <q-carousel-slide
+              :name="1"
+              img-src="https://res.cloudinary.com/dvy167slj/image/upload/f_auto,q_auto/v1/apromed/farma1"
+            />
+            <q-carousel-slide
+              :name="2"
+              img-src="https://res.cloudinary.com/dvy167slj/image/upload/f_auto,q_auto/v1/apromed/farma3"
+            />
+            <q-carousel-slide
+              :name="3"
+              img-src="https://res.cloudinary.com/dvy167slj/image/upload/f_auto,q_auto/v1/apromed/farma4"
+            />
           </q-carousel>
 
           <div class="column q-pa-xl" style="max-width: 550px">

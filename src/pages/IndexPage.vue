@@ -7,7 +7,10 @@
         "
       >
         <div class="row justify-center q-py-sm">
-          <img src="../assets/logo_apromed.png" style="height: 150px" />
+          <img
+            src="https://res.cloudinary.com/dvy167slj/image/upload/f_auto,q_auto/v1/apromed/logo_apromed"
+            style="height: 150px"
+          />
         </div>
 
         <q-carousel
@@ -27,7 +30,7 @@
         >
           <q-carousel-slide :name="1">
             <q-img
-              src="../assets/img1.webp"
+              src="https://res.cloudinary.com/dvy167slj/image/upload/f_auto,q_auto/v1/apromed/img1.webp"
               height="400px"
               class="rounded-borders"
             />
@@ -39,7 +42,7 @@
           </q-carousel-slide>
           <q-carousel-slide :name="2">
             <q-img
-              src="../assets/img2.webp"
+              src="https://res.cloudinary.com/dvy167slj/image/upload/f_auto,q_auto/v1/apromed/img2.webp"
               height="400px"
               class="rounded-borders"
             />
@@ -51,7 +54,7 @@
           </q-carousel-slide>
           <q-carousel-slide :name="3">
             <q-img
-              src="../assets/img3.webp"
+              src="https://res.cloudinary.com/dvy167slj/image/upload/f_auto,q_auto/v1/apromed/img3"
               height="400px"
               class="rounded-borders"
             />
@@ -553,7 +556,7 @@
 
         <div class="fit row justify-center">
           <q-img
-            src="../assets/medicamentos.webp"
+            src="https://res.cloudinary.com/dvy167slj/image/upload/f_auto,q_auto/v1/apromed/medicamentos"
             class="rounded-borders"
             style="max-width: 450px; max-height: 450px"
           />
