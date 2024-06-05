@@ -350,20 +350,20 @@ const toggleRightDrawer = () => {
 const onItemClick = (num: number) => {
   // Redirige a la URL cuando se hace clic en el elemento
   if (num == 1) {
-    window.location.href = 'https://apromedfarmaloja-cloud.com:3008/#/login/1';
+    window.location.href = 'https://apromedreclamos.netlify.app/#/login/1';
   }
   if (num == 2) {
-    window.location.href = 'https://apromedfarmaloja-cloud.com:3008/#/login/2';
+    window.location.href = 'https://apromedreclamos.netlify.app/#/login/2';
   }
 };
 
 const onButtonClick = (num: number) => {
   // Redirige a la URL cuando se hace clic en el elemento
   if (num == 1) {
-    window.location.href = 'https://apromedfarmaloja-cloud.com:3008/#/login/4';
+    window.location.href = 'https://apromedreclamos.netlify.app/#/login/4';
   }
   if (num == 2) {
-    window.location.href = 'https://apromedfarmaloja-cloud.com:3008/#/login/3';
+    window.location.href = 'https://apromedreclamos.netlify.app/#/login/3';
   }
 };
 
