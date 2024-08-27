@@ -88,58 +88,33 @@
               label="Gestión Nómina"
               no-caps
               class="q-px-sm"
-              href="https://apromedfarmaloja-cloud.com:3020/#/login"
+              href="https://apromed-asistencias.netlify.app/#/login"
               target="_blank"
             />
           </div>
 
           <div class="q-px-sm hover-color text-grey-9">
-            <q-btn-dropdown
+            <q-btn
               dense
               flat
               label="Documentos"
               no-caps
               class="q-px-sm"
-            >
-              <q-list>
-                <q-item clickable v-close-popup>
-                  <q-item-section>
-                    <q-item-label clickable @click="onButtonClick(1)">
-                      Clientes de Apromed</q-item-label
-                    >
-                  </q-item-section>
-                </q-item>
-
-                <q-item clickable v-close-popup>
-                  <q-item-section>
-                    <q-item-label clickable @click="onButtonClick(2)"
-                      >Usuarios de Apromed</q-item-label
-                    >
-                  </q-item-section>
-                </q-item>
-              </q-list>
-            </q-btn-dropdown>
+              href="https://apromed-reclamos.netlify.app/#/loginDocumentos"
+              target="_blank"
+            />
           </div>
-          <div class="q-px-sm hover-color text-grey-9">
-            <q-btn-dropdown dense flat label="Reclamos" no-caps class="q-px-sm">
-              <q-list>
-                <q-item clickable v-close-popup>
-                  <q-item-section>
-                    <q-item-label clickable @click="onItemClick(1)">
-                      Clientes de Apromed</q-item-label
-                    >
-                  </q-item-section>
-                </q-item>
 
-                <q-item clickable v-close-popup>
-                  <q-item-section>
-                    <q-item-label clickable @click="onItemClick(2)"
-                      >Usuarios de Apromed</q-item-label
-                    >
-                  </q-item-section>
-                </q-item>
-              </q-list>
-            </q-btn-dropdown>
+          <div class="q-px-sm hover-color text-grey-9">
+            <q-btn
+              dense
+              flat
+              label="Reclamos"
+              no-caps
+              class="q-px-sm"
+              href="https://apromed-reclamos.netlify.app/#/loginReclamos"
+              target="_blank"
+            />
           </div>
         </div>
 
@@ -250,72 +225,32 @@
             </q-item-section>
           </q-item>
 
-          <q-item clickable v-ripple active-class="my-menu-link">
-            <q-expansion-item
-              expand-separator
-              icon="folder"
-              label="Documentos"
-              class="text-h6"
-            >
-              <q-list>
-                <q-item clickable v-close-popup>
-                  <q-item-section>
-                    <q-item-label
-                      class="text-subtitle1"
-                      clickable
-                      @click="onButtonClick(1)"
-                    >
-                      Clientes de Apromed</q-item-label
-                    >
-                  </q-item-section>
-                </q-item>
-
-                <q-item clickable v-close-popup>
-                  <q-item-section>
-                    <q-item-label
-                      class="text-subtitle1"
-                      clickable
-                      @click="onButtonClick(2)"
-                      >Usuarios de Apromed</q-item-label
-                    >
-                  </q-item-section>
-                </q-item>
-              </q-list>
-            </q-expansion-item>
+          <q-item
+            clickable
+            v-ripple
+            active-class="my-menu-link"
+            href="https://apromed-reclamos.netlify.app/#/loginDocumentos"
+          >
+            <q-item-section avatar>
+              <q-icon name="folder" />
+            </q-item-section>
+            <q-item-section>
+              <q-item-label class="text-h6">Documentos</q-item-label>
+            </q-item-section>
           </q-item>
 
-          <q-item clickable v-ripple active-class="my-menu-link">
-            <q-expansion-item
-              expand-separator
-              icon="description"
-              label="Reclamos"
-              class="text-h6"
-            >
-              <q-list>
-                <q-item clickable v-close-popup>
-                  <q-item-section>
-                    <q-item-label
-                      class="text-subtitle1"
-                      clickable
-                      @click="onItemClick(1)"
-                    >
-                      Clientes de Apromed</q-item-label
-                    >
-                  </q-item-section>
-                </q-item>
-
-                <q-item clickable v-close-popup>
-                  <q-item-section>
-                    <q-item-label
-                      class="text-subtitle1"
-                      clickable
-                      @click="onItemClick(2)"
-                      >Usuarios de Apromed</q-item-label
-                    >
-                  </q-item-section>
-                </q-item>
-              </q-list>
-            </q-expansion-item>
+          <q-item
+            clickable
+            v-ripple
+            active-class="my-menu-link"
+            href="https://apromed-reclamos.netlify.app/#/loginReclamos"
+          >
+            <q-item-section avatar>
+              <q-icon name="description" />
+            </q-item-section>
+            <q-item-section>
+              <q-item-label class="text-h6">Reclamos</q-item-label>
+            </q-item-section>
           </q-item>
         </q-list>
       </q-scroll-area>
@@ -345,26 +280,6 @@ $q.screen.setSizes({ sm: 300, md: 500, lg: 1000, xl: 2000 });
 
 const toggleRightDrawer = () => {
   rightDrawerOpen.value = !rightDrawerOpen.value;
-};
-
-const onItemClick = (num: number) => {
-  // Redirige a la URL cuando se hace clic en el elemento
-  if (num == 1) {
-    window.location.href = 'https://apromedreclamos.netlify.app/#/login/1';
-  }
-  if (num == 2) {
-    window.location.href = 'https://apromedreclamos.netlify.app/#/login/2';
-  }
-};
-
-const onButtonClick = (num: number) => {
-  // Redirige a la URL cuando se hace clic en el elemento
-  if (num == 1) {
-    window.location.href = 'https://apromedreclamos.netlify.app/#/login/4';
-  }
-  if (num == 2) {
-    window.location.href = 'https://apromedreclamos.netlify.app/#/login/3';
-  }
 };
 
 const redirectTo = (scrollFunction: () => void) => {
