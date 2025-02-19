@@ -85,18 +85,6 @@
             <q-btn
               dense
               flat
-              label="Gestión Nómina"
-              no-caps
-              class="q-px-sm"
-              href="https://apromed-asistencias.netlify.app/#/login"
-              target="_blank"
-            />
-          </div>
-
-          <div class="q-px-sm hover-color text-grey-9">
-            <q-btn
-              dense
-              flat
               label="Documentos"
               no-caps
               class="q-px-sm"
@@ -115,6 +103,34 @@
               href="https://apromed-reclamos.netlify.app/#/loginReclamos"
               target="_blank"
             />
+          </div>
+
+          <div class="q-px-sm hover-color text-grey-9">
+            <q-btn-dropdown
+              dense
+              flat
+              label="Aplicaciones"
+              no-caps
+              class="q-px-sm"
+            >
+              <q-list>
+                <q-item clickable v-close-popup>
+                  <q-item-section>
+                    <q-item-label clickable @click="onButtonClick(1)"
+                      >Gestión Nómina</q-item-label
+                    >
+                  </q-item-section>
+                </q-item>
+
+                <q-item clickable v-close-popup>
+                  <q-item-section>
+                    <q-item-label clickable @click="onButtonClick(2)"
+                      >Racargas</q-item-label
+                    >
+                  </q-item-section>
+                </q-item>
+              </q-list>
+            </q-btn-dropdown>
           </div>
         </div>
 
@@ -252,6 +268,54 @@
               <q-item-label class="text-h6">Reclamos</q-item-label>
             </q-item-section>
           </q-item>
+
+          <q-item
+            clickable
+            v-ripple
+            active-class="my-menu-link"
+            class="q-pa-none"
+          >
+            <q-expansion-item
+              expand-separator
+              icon="apps"
+              label="Aplicaciones"
+              class="text-h6"
+            >
+              <q-list>
+                <q-item clickable v-close-popup>
+                  <q-item-section avatar>
+                    <q-icon name="schedule" />
+                  </q-item-section>
+                  <q-item-section>
+                    <q-item-label
+                      class="text-subtitle1"
+                      clickable
+                      @click="onButtonClick(1)"
+                    >
+                      Gestión Nómina</q-item-label
+                    >
+                  </q-item-section>
+                </q-item>
+
+                <q-item clickable v-close-popup>
+                  <q-item-section avatar>
+                    <div class="row">
+                      <q-icon size="1em" name="paid" />
+                      <q-icon size="1.5em" name="smartphone" />
+                    </div>
+                  </q-item-section>
+                  <q-item-section>
+                    <q-item-label
+                      class="text-subtitle1"
+                      clickable
+                      @click="onButtonClick(2)"
+                      >Recargas</q-item-label
+                    >
+                  </q-item-section>
+                </q-item>
+              </q-list>
+            </q-expansion-item>
+          </q-item>
         </q-list>
       </q-scroll-area>
     </q-drawer>
@@ -305,6 +369,16 @@ const scrollToContacto = () => {
   const quienesSomosElement = document.getElementById('contacto');
   if (quienesSomosElement) {
     quienesSomosElement.scrollIntoView({ behavior: 'smooth' });
+  }
+};
+
+const onButtonClick = (num: number) => {
+  // Redirige a la URL cuando se hace clic en el elemento
+  if (num == 1) {
+    window.location.href = 'https://apromed-asistencias.netlify.app/#/login';
+  }
+  if (num == 2) {
+    window.location.href = 'https://recargas-app.netlify.app/#/login';
   }
 };
 
