@@ -165,7 +165,7 @@
           fit="fill"
           class="absolute-top"
           src="../assets/logo_apromed.png"
-          style="height: 150px; weight: 250px"
+          style="height: 150px; width: 250px"
         />
       </div>
       <q-scroll-area
@@ -375,10 +375,10 @@ const scrollToContacto = () => {
 const onButtonClick = (num: number) => {
   // Redirige a la URL cuando se hace clic en el elemento
   if (num == 1) {
-    window.location.href = 'https://apromed-asistencias.netlify.app/#/login';
+    window.location.href = 'https://apromed-asistencias.netlify.app';
   }
   if (num == 2) {
-    window.location.href = 'https://recargas-app.netlify.app/#/login';
+    window.location.href = 'https://recargas-apromed.netlify.app';
   }
 };
 
