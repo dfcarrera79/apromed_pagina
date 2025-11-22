@@ -1,8 +1,6 @@
 <template>
   <div
-    :class="
-      appStore.darkMode ? 'q-pa-none element-dark' : 'q-pa-none element'
-    "
+    :class="appStore.darkMode ? 'q-pa-none element-dark' : 'q-pa-none element'"
   >
     <div class="row justify-center q-py-sm">
       <img
@@ -27,16 +25,13 @@
       style="height: 480px; max-width: 920px; margin: 0 auto"
     >
       <q-carousel-slide
+        class="q-pa-none"
         v-for="(slideData, index) in slides"
         :key="index"
         :name="index + 1"
       >
-        <q-img
-          :src="slideData.image"
-          height="400px"
-          class="rounded-borders"
-        />
-        <div class="q-mt-md text-center">
+        <q-img :src="slideData.image" height="400px" class="rounded-borders" />
+        <div class="q-pa-none q-mt-md text-center">
           <p class="text-body1">
             <strong>{{ slideData.text }}</strong>
           </p>
@@ -81,18 +76,10 @@ const slides: Slide[] = [
 
 <style lang="scss" scoped>
 .element-dark {
-  background-image: linear-gradient(
-    142deg,
-    #5b5b5b 0%,
-    rgba(0, 0, 0, 0.9) 100%
-  ) !important;
+  background: linear-gradient(142deg, #003d7a 0%, #1a1a2e 100%) !important;
 }
 
 .element {
-  background-image: linear-gradient(
-    142deg,
-    #a4a4a4 0%,
-    rgba(255, 255, 255, 0.9) 100%
-  ) !important;
+  background: linear-gradient(142deg, #ffffff 0%, #f0f7ff 100%) !important;
 }
 </style>

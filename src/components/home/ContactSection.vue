@@ -115,18 +115,52 @@ const openGoogleMaps = () => {
 
 <style lang="scss" scoped>
 .element-dark {
-  background-image: linear-gradient(
+  background: linear-gradient(
     142deg,
-    #5b5b5b 0%,
-    rgba(0, 0, 0, 0.9) 100%
+    #1a1a2e 0%,
+    #003d7a 50%,
+    #0f0f1e 100%
   ) !important;
+  position: relative;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(
+      circle at 70% 30%,
+      rgba(255, 153, 27, 0.08) 0%,
+      transparent 60%
+    );
+    pointer-events: none;
+  }
 }
 
 .element {
-  background-image: linear-gradient(
+  background: linear-gradient(
     142deg,
-    #a4a4a4 0%,
-    rgba(255, 255, 255, 0.9) 100%
+    #f0f7ff 0%,
+    #ffffff 50%,
+    #fff4e6 100%
   ) !important;
+  position: relative;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(
+      circle at 30% 70%,
+      rgba(0, 61, 122, 0.03) 0%,
+      transparent 60%
+    );
+    pointer-events: none;
+  }
 }
 </style>

@@ -68,7 +68,7 @@
           <div class="q-pa-md">
             <q-card
               class="my-card custom-hover-background"
-              style="height: 200px"
+              style="height: 220px"
               @mouseenter="onHoverVisionClientes"
               @mouseleave="onLeaveVisionClientes"
             >
@@ -100,7 +100,7 @@
 
             <q-card
               class="my-card custom-hover-background q-mt-xl"
-              style="height: 340px"
+              style="height: 360px"
               @mouseenter="onHoverVisionEquipo"
               @mouseleave="onLeaveVisionEquipo"
             >
@@ -282,7 +282,7 @@
           <div class="q-py-md">
             <q-card
               class="my-card custom-hover-background"
-              style="height: 450px; width: 320px"
+              style="height: 470px; width: 320px"
               @mouseenter="onHoverDos"
               @mouseleave="onLeaveDos"
             >

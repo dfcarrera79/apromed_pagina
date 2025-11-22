@@ -15,18 +15,14 @@
       </h3>
       <div class="q-px-xl">
         <p class="text-h6 text-center">
-          En Apromed, nos enorgullece ofrecer productos y servicios que
-          destacan en la industria farmacéutica. Aquí algunos de ellos:
+          En Apromed, nos enorgullece ofrecer productos y servicios que destacan
+          en la industria farmacéutica. Aquí algunos de ellos:
         </p>
       </div>
     </div>
 
     <div class="fit row wrap justify-evenly items-center content-center">
-      <div
-        v-for="feature in features"
-        :key="feature.icon"
-        class="q-py-md"
-      >
+      <div v-for="feature in features" :key="feature.icon" class="q-py-md">
         <InfoCard
           :title="feature.title"
           :content="feature.content"
@@ -69,18 +65,20 @@ const features = [
 
 <style lang="scss" scoped>
 .element-dark {
-  background-image: linear-gradient(
+  background: linear-gradient(
     142deg,
-    #5b5b5b 0%,
-    rgba(0, 0, 0, 0.9) 100%
+    #1a1a2e 0%,
+    #003d7a 50%,
+    #0f0f1e 100%
   ) !important;
 }
 
 .element {
-  background-image: linear-gradient(
+  background: linear-gradient(
     142deg,
-    #a4a4a4 0%,
-    rgba(255, 255, 255, 0.9) 100%
+    #fff4e6 0%,
+    #f5f7fa 50%,
+    #f0f7ff 100%
   ) !important;
 }
 </style>

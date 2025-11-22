@@ -16,7 +16,7 @@
         <InfoCard
           title="Nuestra Misión"
           :content="misionContent"
-          height="380px"
+          height="390px"
         />
       </div>
 
@@ -24,7 +24,7 @@
         <InfoCard
           title="Nuestra Visión"
           :content="visionContent"
-          height="380px"
+          height="390px"
         />
       </div>
     </div>
@@ -33,7 +33,7 @@
       <InfoCard
         title="Nuestro propósito"
         :content="propositoContent"
-        width="370px"
+        width="390px"
       />
     </div>
   </div>
@@ -57,18 +57,52 @@ const propositoContent =
 
 <style lang="scss" scoped>
 .element-dark {
-  background-image: linear-gradient(
+  background: linear-gradient(
     142deg,
-    #5b5b5b 0%,
-    rgba(0, 0, 0, 0.9) 100%
+    #003d7a 0%,
+    #1a1a2e 50%,
+    #0f0f1e 100%
   ) !important;
+  position: relative;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(
+      circle at 20% 50%,
+      rgba(255, 153, 27, 0.1) 0%,
+      transparent 50%
+    );
+    pointer-events: none;
+  }
 }
 
 .element {
-  background-image: linear-gradient(
+  background: linear-gradient(
     142deg,
-    #a4a4a4 0%,
-    rgba(255, 255, 255, 0.9) 100%
+    #fff4e6 0%,
+    #ffffff 50%,
+    #f0f7ff 100%
   ) !important;
+  position: relative;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(
+      circle at 80% 20%,
+      rgba(255, 153, 27, 0.05) 0%,
+      transparent 50%
+    );
+    pointer-events: none;
+  }
 }
 </style>

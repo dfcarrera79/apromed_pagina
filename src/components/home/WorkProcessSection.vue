@@ -22,11 +22,7 @@
     </div>
 
     <div class="fit row wrap justify-evenly items-center content-center">
-      <div
-        v-for="step in steps"
-        :key="step.number"
-        class="q-py-md"
-      >
+      <div v-for="step in steps" :key="step.number" class="q-py-md">
         <InfoCard
           :title="step.title"
           :content="step.content"
@@ -75,18 +71,20 @@ const steps = [
 
 <style lang="scss" scoped>
 .element-dark {
-  background-image: linear-gradient(
+  background: linear-gradient(
     142deg,
-    #5b5b5b 0%,
-    rgba(0, 0, 0, 0.9) 100%
+    #003d7a 0%,
+    #1a1a2e 50%,
+    #0f0f1e 100%
   ) !important;
 }
 
 .element {
-  background-image: linear-gradient(
+  background: linear-gradient(
     142deg,
-    #a4a4a4 0%,
-    rgba(255, 255, 255, 0.9) 100%
+    #f0f7ff 0%,
+    #ffffff 50%,
+    #fff4e6 100%
   ) !important;
 }
 </style>
