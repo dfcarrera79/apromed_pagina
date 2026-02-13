@@ -57,7 +57,7 @@ interface Props {
   width?: string;
 }
 
-const props = withDefaults(defineProps<Props>(), {
+withDefaults(defineProps<Props>(), {
   height: 'auto',
   width: '100%',
 });

@@ -88,7 +88,7 @@
               label="Documentos"
               no-caps
               class="q-px-sm"
-              href="https://apromed-reclamos.netlify.app/#/loginDocumentos"
+              href="https://reclamos.apromedloja.com/loginDocumentos"
               target="_blank"
             />
           </div>
@@ -100,7 +100,7 @@
               label="Reclamos"
               no-caps
               class="q-px-sm"
-              href="https://apromed-reclamos.netlify.app/#/loginReclamos"
+              href="https://reclamos.apromedloja.com/loginReclamos"
               target="_blank"
             />
           </div>
@@ -245,7 +245,7 @@
             clickable
             v-ripple
             active-class="my-menu-link"
-            href="https://apromed-reclamos.netlify.app/#/loginDocumentos"
+            href="https://reclamos.apromedloja.com/loginDocumentos"
           >
             <q-item-section avatar>
               <q-icon name="folder" />
@@ -259,7 +259,7 @@
             clickable
             v-ripple
             active-class="my-menu-link"
-            href="https://apromed-reclamos.netlify.app/#/loginReclamos"
+            href="https://reclamos.apromedloja.com/loginReclamos"
           >
             <q-item-section avatar>
               <q-icon name="description" />
@@ -378,7 +378,7 @@ const onButtonClick = (num: number) => {
     window.location.href = 'https://apromed-asistencias.netlify.app';
   }
   if (num == 2) {
-    window.location.href = 'https://recargas-apromed.netlify.app';
+    window.location.href = 'https://recargas.apromedloja.com';
   }
 };
 
